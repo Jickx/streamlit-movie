@@ -63,6 +63,7 @@ if st.button('Generate movie'):
 
     image_url = omdb_data['Poster']
     title = omdb_data['Title'] + ', ' + omdb_data['Year']
+    imdb_url = random_row['URL']
     runtime = runtime_convert(omdb_data['Runtime'])
     genre = omdb_data['Genre']
     plot = omdb_data['Plot']
@@ -86,4 +87,5 @@ if st.button('Generate movie'):
                 f'{rating['Source']}: {rating['Value']}')
 
     st.text('\n'.join(omdb_ratings_formatted))
+    st.markdown(f'[IMDB link]({imdb_url})')
     st.divider()
