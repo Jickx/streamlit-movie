@@ -54,7 +54,6 @@ def get_ombd_data(movie_id):
         return None
 
 
-# Page Title
 st.title('IMDB Watchlist movie randomizer')
 
 if st.button('Generate movie'):
@@ -73,19 +72,28 @@ if st.button('Generate movie'):
     omdb_ratings = omdb_data['Ratings']
     omdb_ratings_formatted = []
 
-    st.header(title)
-    st.image(image_url)
-    st.text(runtime)
-    st.text(genre)
-    st.text(plot)
-    st.text(director)
-    st.text(actors)
-    st.text(awards)
-    if omdb_ratings is not None:
+    if title is not None and title != 'N/A':
+        st.header(title)
+    if image_url is not None and image_url != 'N/A':
+        st.image(image_url)
+    if runtime is not None and runtime != 'N/A':
+        st.text(runtime)
+    if genre is not None and genre != 'N/A':
+        st.text(genre)
+    if plot is not None and plot != 'N/A':
+        st.text(plot)
+    if director is not None and director != 'N/A':
+        st.text(director)
+    if actors is not None and actors != 'N/A':
+        st.text(actors)
+    if awards is not None and awards != 'N/A':
+        st.text(awards)
+    if omdb_ratings is not None and omdb_ratings != 'N/A':
         for rating in omdb_ratings:
             omdb_ratings_formatted.append(
                 f'{rating['Source']}: {rating['Value']}')
 
-    st.text('\n'.join(omdb_ratings_formatted))
-    st.markdown(f'[IMDB link]({imdb_url})')
+        st.text('\n'.join(omdb_ratings_formatted))
+    if imdb_url is not None and imdb_url != 'N/A':
+        st.markdown(f'[IMDB link]({imdb_url})')
     st.divider()
