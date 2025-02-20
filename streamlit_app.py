@@ -97,3 +97,4 @@ if st.button('Generate movie'):
     if imdb_url is not None and imdb_url != 'N/A':
         st.markdown(f'[IMDB link]({imdb_url})')
     st.divider()
+    st.text('2025 VS')
