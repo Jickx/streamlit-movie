@@ -61,19 +61,20 @@ if st.button('Generate movie'):
     omdb_data = get_ombd_data(random_row['Const'])
 
     image_url = omdb_data['Poster']
-    title = omdb_data['Title'] + ', ' + omdb_data['Year']
+    title = omdb_data['Title']
+    year = omdb_data['Year']
     imdb_url = random_row['URL']
     runtime = runtime_convert(omdb_data['Runtime'])
     genre = omdb_data['Genre']
     plot = omdb_data['Plot']
-    director = 'Director: ' + omdb_data['Director']
-    actors = 'Cast: ' + omdb_data['Actors'] + '\n'
+    director = omdb_data['Director']
+    actors = omdb_data['Actors']
     awards = omdb_data['Awards']
     omdb_ratings = omdb_data['Ratings']
     omdb_ratings_formatted = []
 
     if title is not None and title != 'N/A':
-        st.header(title)
+        st.header(title + ', ' + year)
     if image_url is not None and image_url != 'N/A':
         st.image(image_url)
     if runtime is not None and runtime != 'N/A':
@@ -83,9 +84,9 @@ if st.button('Generate movie'):
     if plot is not None and plot != 'N/A':
         st.text(plot)
     if director is not None and director != 'N/A':
-        st.text(director)
+        st.text('Director: ' + director)
     if actors is not None and actors != 'N/A':
-        st.text(actors)
+        st.text('Cast: ' + actors + '\n')
     if awards is not None and awards != 'N/A':
         st.text(awards)
     if omdb_ratings is not None and omdb_ratings != 'N/A':
@@ -97,4 +98,4 @@ if st.button('Generate movie'):
     if imdb_url is not None and imdb_url != 'N/A':
         st.markdown(f'[IMDB link]({imdb_url})')
     st.divider()
-    st.text('2025 VS')
+    st.text('VS2025')
