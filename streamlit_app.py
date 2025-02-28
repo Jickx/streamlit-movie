@@ -56,6 +56,8 @@ def get_ombd_data(movie_id):
 
 st.title('IMDB Watchlist movie randomizer')
 
+st.text(f'{len(data)} movies in watchlist')
+
 if st.button('Generate movie'):
     random_row = get_random_data()
     omdb_data = get_ombd_data(random_row['Const'])
@@ -98,4 +100,4 @@ if st.button('Generate movie'):
     if imdb_url is not None and imdb_url != 'N/A':
         st.markdown(f'[IMDB link]({imdb_url})')
     st.divider()
-    st.text('VS2025')
+    st.text('2025')
