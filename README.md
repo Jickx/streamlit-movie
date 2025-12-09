@@ -2,6 +2,8 @@
 
 A small Streamlit app that picks a random movie from an exported IMDB watchlist (CSV) and shows detailed information fetched from the OMDb API.
 
+Live app: https://movie-randomizer.streamlit.app/
+
 Features
 
 - Loads a local `data.csv` (IMDB watchlist export).
